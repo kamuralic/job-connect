@@ -28,7 +28,12 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 30
-
+    lintOptions {
+        disable 'InvalidPackage'
+        //Put the following line
+        checkReleaseBuilds false
+        //abortOnError false
+    }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }

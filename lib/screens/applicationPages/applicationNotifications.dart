@@ -66,7 +66,7 @@ class ApplicationsNotificationsPage extends StatelessWidget {
             ),
             Container(
               child: StreamBuilder<QuerySnapshot>(
-                  stream: storageServiceProvider.messages
+                  stream: storageServiceProvider.jobApplications
                       .where('advertiserId',
                           isEqualTo: authProvider.currentFirebaseUser!.uid)
                       .snapshots(),

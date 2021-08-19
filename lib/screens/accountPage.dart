@@ -47,51 +47,11 @@ class AccountPage extends StatelessWidget {
                       children: [
                         userImage(context, data),
                         applicantDetails(context, data),
-                        Card(
-                          elevation: 3,
-                          child: Container(
-                            padding: EdgeInsets.all(8),
-                            width: MediaQuery.of(context).size.width - 16,
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      'Job Topics',
-                                      style:
-                                          Theme.of(context).textTheme.headline3,
-                                    ),
-                                  ],
-                                ),
-                                Divider(),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ListTile(
-                                    onTap: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return TopicSubscriptionPicker(
-                                                userDocId: data.id);
-                                          });
-                                    },
-                                    title: Text('Subscribe To Jobs'),
-                                    leading: Icon(
-                                      Icons.notifications,
-                                    ),
-                                    subtitle: Text(
-                                        'Get notified when jobs of desired category are posted'),
-                                    trailing: Icon(
-                                      Icons.arrow_forward_ios,
-                                      size: 20,
-                                      color: Theme.of(context).iconTheme.color,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        )
+                        topicSubscription(context, data),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        logoutButton(context)
                       ],
                     ),
                   );
@@ -100,6 +60,86 @@ class AccountPage extends StatelessWidget {
         ),
         ConnectivityNotifierWidget(),
       ],
+    );
+  }
+
+  Widget logoutButton(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: InkWell(
+            onTap: () {
+              context.read<AuthenticationService>().logOut();
+            },
+            child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(vertical: 8),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: Colors.grey.shade400,
+                        offset: Offset(2, 4),
+                        blurRadius: 5,
+                        spreadRadius: 2)
+                  ],
+                  color: Theme.of(context).iconTheme.color,
+                ),
+                child: Text(
+                  'Logout',
+                  style: Theme.of(context).textTheme.subtitle2,
+                )),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget topicSubscription(
+      BuildContext context, QueryDocumentSnapshot<Object?> data) {
+    return Card(
+      elevation: 3,
+      child: Container(
+        padding: EdgeInsets.all(8),
+        width: MediaQuery.of(context).size.width - 16,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  'Job Topics',
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              ],
+            ),
+            Divider(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListTile(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return TopicSubscriptionPicker(userDocId: data.id);
+                      });
+                },
+                title: Text('Subscribe To Jobs'),
+                leading: Icon(
+                  Icons.notifications,
+                ),
+                subtitle: Text(
+                    'Get notified when jobs of desired category are posted'),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 20,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 

@@ -325,11 +325,6 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                             ],
                           ),
                         ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 20,
-                          color: Theme.of(context).iconTheme.color,
-                        ),
                       ],
                     ),
                   ),
