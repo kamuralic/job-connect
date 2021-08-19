@@ -2,6 +2,7 @@
     package="com.example.job_connect">
     <uses-permission
         android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Job Connect"
         android:icon="@mipmap/ic_launcher">
