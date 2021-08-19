@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "937239968766",
+    "project_id": "jobconnect-f6640",
+    "storage_bucket": "jobconnect-f6640.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937239968766:android:40984654275b9058e69eaf",
+        "android_client_info": {
+          "package_name": "org.afhod.jobConnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937239968766-5te4fejg4iejgiql871v7kbd5771acut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.afhod.jobConnect",
+            "certificate_hash": "598a80c2a0708ff1935d52f0362344872b5af6e4"
+          }
+        },
+        {
+          "client_id": "937239968766-o153lo8du811bu8ivboscumrbobv1n9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYhyQutqFjJuWDKeiE_Tw-TpW5j64A-7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937239968766-o153lo8du811bu8ivboscumrbobv1n9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
